@@ -19,4 +19,18 @@ a[0]=${ao[10]}
 a[1]=${ao[11]}
 a[2]=${ao[12]}
 a[3]=${ao[13]}
-echo ${a[@]}
+#sorting descending order
+echo "before sorting: " ${a[@]}
+	for((i=0;i<=3;i++))
+	do
+		for((j=i+1;j<=3;j++))
+		do
+			if(( ${a[i]} < ${a[j]}))
+			then
+				temp=${a[i]}
+				a[$i]=${a[j]}
+				a[$j]=$temp
+			fi
+		done
+	done
+echo "after soting:" ${a[@]}
